@@ -85,3 +85,12 @@ RUN apt-get update && apt-get install -y git && \
     npm i -g --unsafe-perm ionic@${IONIC_VERSION} && \
     ionic --no-interactive config set -g daemon.updates false && \
     rm -rf /var/lib/apt/lists/* && apt-get clean
+
+# fir 安装======================================================================
+RUN apt-get update && \
+    apt-get install -yq build-essential libssl-dev ruby ruby-dev --no-install-recommends && \
+    apt-get clean
+RUN gem install fir-cli
+
+# 其他 =========================================================================
+RUN cnpm install android-versions --save
