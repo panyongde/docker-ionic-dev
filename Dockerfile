@@ -81,7 +81,7 @@ RUN npm i -g --unsafe-perm cordova@${CORDOVA_VERSION}
 # ionic 镜像 ===================================================================
 ENV IONIC_VERSION 3.18.0
 
-RUN apt-get update && apt-get install -y git && \
+RUN apt-get update && apt-get install -y git vim && \
     npm i -g --unsafe-perm ionic@${IONIC_VERSION} && \
     ionic --no-interactive config set -g daemon.updates false && \
     rm -rf /var/lib/apt/lists/* && apt-get clean
